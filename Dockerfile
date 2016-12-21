@@ -6,7 +6,9 @@ MAINTAINER Nicolas CARPi <nicolas.carpi@curie.fr>
 ENV ELABFTW_VERSION hypernext
 
 # install nginx and php-fpm
-RUN apk add --update openjdk8-jre nginx openssl php7 php7-openssl php7-pdo_mysql php7-fpm php7-gd php7-curl php7-zip php7-zlib php7-json php7-gettext php7-session php7-mbstring git supervisor && rm -rf /var/cache/apk/*
+RUN apk add --update openjdk8-jre nginx openssl php7 php7-openssl php7-pdo_mysql php7-fpm php7-gd php7-curl php7-zip php7-zlib php7-json php7-gettext php7-session php7-mbstring git supervisor ghostscript
+# install php7-gmagick from testing repo (not in main/community yet)
+RUN apk add --update --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted php7-gmagick && rm -rf /var/cache/apk/*
 
 # get latest stable version of elabftw
 #RUN git clone --depth 1 -b $ELABFTW_VERSION https://github.com/elabftw/elabftw.git /elabftw && chown -R nginx:nginx /elabftw && chmod -R u+x /elabftw
