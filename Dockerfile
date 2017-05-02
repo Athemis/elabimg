@@ -28,7 +28,7 @@ RUN apk upgrade -U -a && apk add --update \
     curl \
     coreutils \
     ghostscript \
-    supervisor && rm -rf /var/cache/apk/* && ln -s /usr/bin/php7 /usr/bin/php    
+    supervisor && rm -rf /var/cache/apk/*
 
 # install php7-gmagick from testing repo (not in main/community yet)
 RUN apk add --update --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted php7-gmagick && rm -rf /var/cache/apk/*
