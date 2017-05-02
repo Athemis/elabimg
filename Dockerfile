@@ -25,6 +25,8 @@ RUN apk upgrade -U -a && apk add --update \
     php7-phar \
     php7-ctype \
     php7-dom \
+    php7-fileinfo \
+    php7-mcrypt \
     git \
     curl \
     coreutils \
